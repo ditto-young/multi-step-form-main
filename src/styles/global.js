@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 import UbuntuTTFBold from "../assets/fonts/Ubuntu-Bold.ttf";
 import UbuntuTTFMedium from "../assets/fonts/Ubuntu-Medium.ttf";
 import UbuntuTTFRegular from "../assets/fonts/Ubuntu-Regular.ttf";
@@ -20,6 +20,18 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'UbuntuTTFRegular';
     font-size: 16px;
+    box-sizing: border-box;
+  }
+  input{
+    border: none;
+    background-color: transparent;
+  }
+  button{
+    border: none;
+    :hover{
+      opacity: 0.8;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -40,3 +52,20 @@ export const colors = {
   Alabaster: "hsl(231, 100%, 99%)",
   White: "hsl(0, 0%, 100%)",
 };
+
+export const fontSize = {
+  big: "40px",
+  mid: "20px",
+  small: "14px",
+};
+
+export const TitleStyle = css`
+  font-weight: 500;
+  font-family: "UbuntuTTFMedium";
+  letter-spacing: 1px;
+  font-size: ${fontSize.big};
+`;
+
+export const SubTitleStyle = css`
+  font-size: ${fontSize.mid};
+`;

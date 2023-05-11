@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { MEDIA_SIZE, colors } from "./styles/global";
 import SideBarImg from "./assets/images/bg-sidebar-desktop.svg";
+import PersonalInfo from "./pages/PersonalInfo";
 
-function App() {
+const App = () => {
   return (
     <Wrapper>
       <ContentWrapper>
@@ -10,11 +11,13 @@ function App() {
           <SidebarBackground src={SideBarImg} />
         </SideBar>
 
-        <Content>이건뭐야</Content>
+        <Content>
+          <PersonalInfo />
+        </Content>
       </ContentWrapper>
     </Wrapper>
   );
-}
+};
 
 export default App;
 
@@ -37,6 +40,7 @@ const ContentWrapper = styled.div`
   background-color: ${colors.White};
   margin: auto;
   border-radius: 20px;
+  max-width: 1200px;
   width: 80vw;
   height: 70vh;
   padding: 20px;
@@ -58,6 +62,8 @@ const SidebarBackground = styled.img`
 `;
 
 const Content = styled.div`
+  display: flex;
   flex: 60%;
-  background-color: ${colors.Magnolia};
+  flex-direction: column;
+  height: 100%;
 `;
