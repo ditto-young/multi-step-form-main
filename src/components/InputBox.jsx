@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { colors, fontSize } from "../styles/global";
 
-const InputBox = ({ isRequired, value, onChange, label }) => {
+const InputBox = ({ setValue, name }) => {
   return (
     <div>
-      <Label>{label}</Label>
+      <Label>{name}</Label>
       <Input
-        onChange={onChange}
-        value={value}
+        name={name}
+        onChange={(e) => setValue(e.target.value)}
         placeholder="Vanessa Mint"
       ></Input>
     </div>

@@ -2,8 +2,11 @@ import styled from "styled-components";
 import { MEDIA_SIZE, colors } from "./styles/global";
 import SideBarImg from "./assets/images/bg-sidebar-desktop.svg";
 import PersonalInfo from "./pages/PersonalInfo";
+import { useState } from "react";
+import SelectPlan from "./pages/SelectPlan";
 
 const App = () => {
+  const [step, setStep] = useState(1);
   return (
     <Wrapper>
       <ContentWrapper>
@@ -12,7 +15,8 @@ const App = () => {
         </SideBar>
 
         <Content>
-          <PersonalInfo />
+          {step === 0 && <PersonalInfo setStep={setStep} />}
+          {step === 1 && <SelectPlan />}
         </Content>
       </ContentWrapper>
     </Wrapper>

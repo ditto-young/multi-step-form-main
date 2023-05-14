@@ -2,8 +2,18 @@ import styled from "styled-components";
 import InputBox from "../components/InputBox";
 import PageTitle from "../components/PageTitle";
 import { colors, fontSize } from "../styles/global";
+import { useState } from "react";
 
-const PersonalInfo = () => {
+const PersonalInfo = ({ setStep }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const onClickNextBtn = () => {
+    if (name === "" || email === "" || phone === "") return;
+    setStep((current) => current + 1);
+  };
+
   return (
     <>
       <PageTitle
@@ -11,11 +21,11 @@ const PersonalInfo = () => {
         subTitle={"Please provide your name, email address, and phone number."}
       />
       <InputWrapper>
-        <InputBox label={"Name"} />
-        <InputBox label={"Email Address"} />
-        <InputBox label={"Phone Number"} />
+        <InputBox name={"Name"} setValue={setName} />
+        <InputBox name={"Email Address"} setValue={setEmail} />
+        <InputBox name={"Phone Number"} setValue={setPhone} />
       </InputWrapper>
-      <StepButton>Next Step</StepButton>
+      <StepButton onClick={onClickNextBtn}>Next Step</StepButton>
     </>
   );
 };

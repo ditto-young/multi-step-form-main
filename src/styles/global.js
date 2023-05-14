@@ -28,6 +28,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   button{
     border: none;
+    background-color: transparent;
+    
     :hover{
       opacity: 0.8;
       cursor: pointer;
